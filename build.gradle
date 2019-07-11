@@ -1,0 +1,37 @@
+plugins {
+    id 'groovy'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+mainClassName = 'co.vulpin.birthday.Main'
+
+shadowJar {
+    archiveName = "BirthdayBot.$extension"
+    destinationDir = new File("C:/Users/Nik/Desktop/BirthdayBot")
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    // Language
+    compile group: 'org.codehaus.groovy', name: 'groovy', version: '3.0.0-alpha-3'
+
+    // Logger
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-beta2'
+
+    // Database
+    compile group: 'com.google.cloud', name: 'google-cloud-firestore', version: '0.64.0-beta'
+
+    // Discord + Utils
+    compile group: 'co.vulpin',    name: 'commando',      version: '073abe7'
+    compile group: 'net.dv8tion',  name: 'JDA',           version: '3.7.1_385'
+    compile group: 'com.jagrosh',  name: 'jda-utilities', version: '2.1'
+
+    // DBL
+    compile group: 'org.discordbots', name: 'DBL-Java-Library', version: '2.0.1'
+}
